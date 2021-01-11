@@ -16,7 +16,7 @@ This code was developed and run using the following software:
 - [MATLAB R2018a/R2020a](https://de.mathworks.com/help/matlab/release-notes.html) (Version 9.4/9.8)
 - [MATLAB Statistics and ML Toolbox](https://de.mathworks.com/products/statistics.html) (Version 11.7)
 - [SPM12](https://www.fil.ion.ucl.ac.uk/spm/software/spm12/) (Revision 7771 as of 13/01/2020)
-- [spm_helper package](https://github.com/JoramSoch/MACS) (Version 1.3)
+- [spm_helper](https://github.com/JoramSoch/spm_helper) package (Version 1.3)
 
 
 ### Instructions
