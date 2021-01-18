@@ -2,7 +2,7 @@
 
 **FADE and SAME scores for successful aging in memory**
 
-This code belongs to the paper "Optimization and validation of memory-related fMRI activation patterns as potential biomarker for neurocognitive aging" by Soch, Richter et al. (2021), soon available as a preprint from *bioRxiv*. For instructions how to process these data, see below.
+This code belongs to the paper "A comprehensive score reflecting memory-related fMRI activations and deactivations as a potential biomarker for neurocognitive aging" by Soch, Richter et al. (2021), soon available from *bioRxiv* and submitted to *Human Brain Mapping*. For instructions how to process these data, see below.
 
 - Preprint: TBA
 - Data: TBA
