@@ -26,7 +26,7 @@ if ~exist(strcat(stud_dir,'SPM_analyses/'),'dir')
 end;
 
 % specify analyses to perform
-thx2do = [2, 3, 4];
+thx2do = [1, 2, 3, 4];
 
 
 %%% Step 1: Generate first-level contrasts %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -98,7 +98,7 @@ end;
 end;
 
 
-%%% Step 3: Calculate FADE/SAME scores %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% Step 3: Calculate FADE and SAME scores %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 if ismember(3,thx2do)
 
 % specify analyses
@@ -152,12 +152,12 @@ clear ref_dirsA ref_dirsB ref_dirs1 ref_dirs2 ref_dirs12
 end;
 
 
-%%% Step 4: Calculate FADE/SAME scores %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% Step 4: Reproduce Figures and Tables %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 if ismember(4,thx2do)
     
 % Tables 1-2
 % Figures 3-6
 % Tables S1-S2
-% Figures S1-S3
+% Figures S1-S4
 
 end;
