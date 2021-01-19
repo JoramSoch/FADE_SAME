@@ -31,14 +31,16 @@ for i = 1:num_subj
     if strncmp(raw{1}{1+i,1},'subA',4)
         if raw{1}{1+i,4} < 50
             AiA_inds(i) = 1;    % young AiA
+        elseif raw{1}{1+i,4} < 60
+            AiA_inds(i) = 3;    % middle-aged AiA
         else
-            AiA_inds(i) = 3;    % old AiA
+            AiA_inds(i) = 2;    % older AiA
         end;
     else
-        AiA_inds(i) = 2;        % yFADE
+        AiA_inds(i) = 4;        % yFADE
     end;
 end;
-num_subj = [sum(AiA_inds==1), sum(AiA_inds==2), sum(AiA_inds==3)];
+num_subj = [sum(AiA_inds==1), sum(AiA_inds==2), sum(AiA_inds==3), sum(AiA_inds==4)];
 
 % rename FADE/SAMe scores
 FADE_vars = raw{1}(1,FADE_inds);
@@ -51,8 +53,8 @@ end;
 
 % two-sample t-tests
 n1 = num_subj(1);               % AiA subjects (young)
-n2 = num_subj(2);               % yFADE subjects (young)
-Y  = [FADE_data(AiA_inds==1,:,1); FADE_data(AiA_inds==2,:,2)];
+n2 = num_subj(4);               % yFADE subjects (young)
+Y  = [FADE_data(AiA_inds==1,:,1); FADE_data(AiA_inds==4,:,2)];
 X  = blkdiag(ones(n1,1), ones(n2,1));
 V  = eye(n1+n2);
 b  = ME_GLM(Y, X, V);

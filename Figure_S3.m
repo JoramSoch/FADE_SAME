@@ -1,4 +1,4 @@
-% FADE-SAME: Figure 4
+% FADE-SAME: Figure S3
 
 % clear
 % close all
@@ -42,11 +42,11 @@ for i = 1:num_subj
 end;
 
 % extract covariate values
-FADE_SAME = FADE_SAME(AiA_inds<3,:);
-age       = age(AiA_inds<3);
-age_grp   = 1*(age<50) + 2*(age>=60);
-bhvr      = cell2mat(covs_data(AiA_inds<3,3));
-GMD       = cell2mat(covs_data(AiA_inds<3,[4 5]));
+FADE_SAME = FADE_SAME(AiA_inds>2,:);
+age       = age(AiA_inds>2);
+age_grp   = 1*(age<50) + 2*(age>=50);
+bhvr      = cell2mat(covs_data(AiA_inds>2,3));
+GMD       = cell2mat(covs_data(AiA_inds>2,[4 5]));
 
 
 %%% Step 2: analyze data %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -123,22 +123,22 @@ for i = 1:v
     for j = 1:p
         
         subplot(p,v,(j-1)*v+i); hold on;
-        plot(x1{j,i}, y1{j,i}, '.r', 'Color', [1, (p1(j,i)>p_thr(1))*1/2, (p1(j,i)>p_thr(1))*1/2]);
-        plot(x2{j,i}, y2{j,i}, '.b', 'Color', [(p2(j,i)>p_thr(1))*1/2, (p2(j,i)>p_thr(1))*1/2, 1]);
+        plot(x1{j,i}, y1{j,i}, '.r', 'Color', [1, (p1(j,i)>p_thr(1))*2/3, 1]);
+        plot(x2{j,i}, y2{j,i}, '.b', 'Color', [(p2(j,i)>p_thr(1))*2/3, 1, 1]);
         if j == 1
             x_lim = [min(x0{j,i})-5, max(x0{j,i})+5];
-            x1_lim= [min(x1{j,i})-10, max(x1{j,i})+10];
-            x2_lim= [min(x2{j,i})-10, max(x2{j,i})+10];
-            plot(x1_lim, mn1{j,i}(1)*x1_lim + mn1{j,i}(2), '-r', 'Color', [1, (p1(j,i)>p_thr(1))*1/2, (p1(j,i)>p_thr(1))*1/2]);
-            plot(x2_lim, mn2{j,i}(1)*x2_lim + mn2{j,i}(2), '-b', 'Color', [(p2(j,i)>p_thr(1))*1/2, (p2(j,i)>p_thr(1))*1/2, 1]);
+            x1_lim= [min(x1{j,i})-7.5, max(x1{j,i})+7.5];
+            x2_lim= [min(x2{j,i})-7.5, max(x2{j,i})+7.5];
+            plot(x1_lim, mn1{j,i}(1)*x1_lim + mn1{j,i}(2), '-r', 'Color', [1, (p1(j,i)>p_thr(1))*2/3, 1]);
+            plot(x2_lim, mn2{j,i}(1)*x2_lim + mn2{j,i}(2), '-b', 'Color', [(p2(j,i)>p_thr(1))*2/3, 1, 1]);
         elseif j == 2
             x_lim = [0.5, 1];
         else
             x_lim = [min(x0{j,i})-1/20*range(x0{j,i}), max(x0{j,i})+1/20*range(x0{j,i})];
         end;
         if j ~= 1
-            plot(x_lim, mn1{j,i}(1)*x_lim + mn1{j,i}(2), '-r', 'Color', [1, (p1(j,i)>p_thr(1))*1/2, (p1(j,i)>p_thr(1))*1/2]);
-            plot(x_lim, mn2{j,i}(1)*x_lim + mn2{j,i}(2), '-b', 'Color', [(p2(j,i)>p_thr(1))*1/2, (p2(j,i)>p_thr(1))*1/2, 1]);
+            plot(x_lim, mn1{j,i}(1)*x_lim + mn1{j,i}(2), '-r', 'Color', [1, (p1(j,i)>p_thr(1))*2/3, 1]);
+            plot(x_lim, mn2{j,i}(1)*x_lim + mn2{j,i}(2), '-b', 'Color', [(p2(j,i)>p_thr(1))*2/3, 1, 1]);
         end;
         xlim(x_lim);
         ylim([min(y0{j,i})-1/20*range(y0{j,i}), max(y0{j,i})+1/20*range(y0{j,i})]);
@@ -162,10 +162,10 @@ for i = 1:v
             txt2 = sprintf('r = %0.2f, p = %0.3f', r2(j,i), p2(j,i));
         end;
         text(x_lim(1), max(y0{j,i})+1/20*range(y0{j,i}), txt1, ...
-             'FontSize', 8, 'FontWeight', 'Bold', 'Color', [1, (p1(j,i)>p_thr(1))*1/2, (p1(j,i)>p_thr(1))*1/2], ...
+             'FontSize', 8, 'FontWeight', 'Bold', 'Color', [1, (p1(j,i)>p_thr(1))*2/3, 1], ...
              'VerticalAlignment', 'Bottom', 'HorizontalAlignment', 'Left');
         text(x_lim(2), max(y0{j,i})+1/20*range(y0{j,i}), txt2, ...
-             'FontSize', 8, 'FontWeight', 'Bold', 'Color', [(p2(j,i)>p_thr(1))*1/2, (p2(j,i)>p_thr(1))*1/2, 1], ...
+             'FontSize', 8, 'FontWeight', 'Bold', 'Color', [(p2(j,i)>p_thr(1))*2/3, 1, 1], ...
              'VerticalAlignment', 'Bottom', 'HorizontalAlignment', 'Right');
         
     end;

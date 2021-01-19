@@ -26,7 +26,7 @@ for j = 1:num_files
 end;
 
 % restrict results data
-age       = cell2mat(raw{j}(2:end,4));
+age       = cell2mat(raw{1}(2:end,4));
 FADE_data = FADE_data(age>=60,:,:);
 num_subj  = size(FADE_data,1);
 
