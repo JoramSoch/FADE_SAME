@@ -73,7 +73,7 @@ clear ref_hdr ref_img
 % get voxel indices
 VOIp_ind = find(M~=0 & Rp~=0);  % positive volume of interest indices
 VOIn_ind = find(M~=0 & Rn~=0);  % negative volume of interest indices
-VOnI_ind = find(M~=0 & Rp==0 & Rn~=0);      % volume of no interest
+VOnI_ind = find(M~=0 & Rp==0 & Rn==0);      % volume of no interest
 
 % calculate t-map
 covB = SPM.xX.Bcov;
