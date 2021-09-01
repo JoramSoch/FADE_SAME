@@ -2,9 +2,9 @@
 
 **FADE and SAME scores for successful aging in memory**
 
-This code belongs to the paper "A comprehensive score reflecting memory-related fMRI activations and deactivations as a potential biomarker for neurocognitive aging" by Soch, Richter et al. (2021), publicly available from *bioRxiv* and currently under review *Human Brain Mapping*. For instructions how to process these data, see below.
+This code belongs to the paper "A comprehensive score reflecting memory-related fMRI activations and deactivations as a potential biomarker for neurocognitive aging" by Soch, Richter et al. (2021), published open access in *Human Brain Mapping*. For instructions how to process these data, see below.
 
-- Preprint: https://www.biorxiv.org/content/10.1101/2021.01.16.426666v1
+- Paper: https://onlinelibrary.wiley.com/doi/10.1002/hbm.25559
 - Data (1): https://neurovault.org/collections/EPLZNQAD/
 - Data (2): https://github.com/JoramSoch/FADE_SAME_SPM_mat
 - Code: https://github.com/JoramSoch/FADE_SAME

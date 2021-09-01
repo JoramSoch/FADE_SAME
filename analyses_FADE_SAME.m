@@ -155,9 +155,9 @@ end;
 %%% Step 4: Reproduce Figures and Tables %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 if ismember(4,thx2do)
     
-% Tables 1-2
+% Tables 2-3
 % Figures 3-6
-% Tables S1-S2
-% Figures S1-S4
+% Tables S3-S5
+% Figures S2-S7
 
 end;
