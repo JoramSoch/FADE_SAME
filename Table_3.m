@@ -1,4 +1,4 @@
-% FADE-SAME: Table S2
+% FADE-SAME: Table 3
 
 % clear
 % close all
@@ -16,7 +16,7 @@ conf_lvl = 0.9;
 % extract variables
 Y = cell2mat(raw(2:end,5+[1:4]));
 X = cell2mat(raw(2:end,[2,3,4]));
-X(:,3) = 1*double(X(:,3)>=50 & X(:,3)<60) + 2*double(X(:,3)>=60);
+X(:,3) = 1*double(X(:,3)<50) + 2*double(X(:,3)>=60);
 Y = Y(X(:,3)~=0,:);
 X = X(X(:,3)~=0,:);
 [n, v] = size(Y);
@@ -33,12 +33,12 @@ T = table(Y(:,1), Y(:,2), Y(:,3), Y(:,4), X(:,1), X(:,2), X(:,3), ...
 %%% Step 2: analyze data %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 % within-subject design matrix
-lvls2 = {'FADE', 'SAMe';
-         'middle-aged', 'old'}';
+lvls2 = {'FADE',  'SAMe';
+         'young', 'old'}';
 X2 = double([X(:,3)==1, X(:,3)==2]);
 X2 = blkdiag(X2,X2);
 X2 = [X2, repmat(eye(n),[2 1])];
-l2 = {'FADE/middle-aged', 'FADE/old', 'SAMe/middle-aged', 'SAMe/old'};
+l2 = {'FADE/young', 'FADE/old', 'SAMe/young', 'SAMe/old'};
 c2 = [eye(2^2); zeros(size(X2,2)-2^2,2^2)];
 
 % within-subject ANOVAs
@@ -81,10 +81,10 @@ end;
 
 % save table
 Res = [cell(1,1), col; row, Res];
-xlswrite('Table_S2.xls', Res);
+xlswrite('Table_3.xls', Res);
 
 % within-subject ANOVAs
-figure('Name', 'FADE and SAMe ANOVAs (1)', 'Color', [1 1 1], 'Position', [50 50 1280 720]);
+figure('Name', 'FADE and SAME ANOVAs', 'Color', [1 1 1], 'Position', [50 50 1280 720]);
 
 for i = 1:numel(m2)
     
